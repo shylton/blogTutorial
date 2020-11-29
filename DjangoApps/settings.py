@@ -111,9 +111,9 @@ LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'America/Sao_Paulo'
 
-USE_I18N = True
+USE_I18N = False
 
-USE_L10N = True
+USE_L10N = False
 
 USE_TZ = True
 
@@ -125,3 +125,5 @@ STATIC_URL = '/static/'
 
 # default is bootstrap2, outdated
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+LOGIN_REDIRECT_URL = 'blogTutorial:blog_home'

@@ -11,8 +11,9 @@ def registration(req):
             # create user, display msg, redirect home
             form.save()
             username = form.cleaned_data.get('username')
-            messages.success(req, f'Account created for {username}!')
-            return redirect('blogTutorial:blog_home')
+            messages.success(req, f'Account created for {username}!'
+                                  f'Please log in.')
+            return redirect('login')
     else:
         # invalid form, reload page with prefilled form
         form = UserRegisterForm()
