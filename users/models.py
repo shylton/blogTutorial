@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from PIL import Image
 
 
 class Profile(models.Model):
@@ -8,3 +9,15 @@ class Profile(models.Model):
 
     def __str__(self):
         return f'{self.user.username} Profile'
+
+    def save(self):
+        """Schafer @part 9: perhaps there are more efficient ways to do this.
+        TODO: use pre-save decorator instead?
+        TODO: delete old image after image update"""
+        super().save()  # runs the save method of the parent class
+
+        img = Image.open(self.image.path)
+        if img.height > 300 or img.width > 300:
+            img.thumbnail((300,300))
+            img.save(self.image.path)
+
