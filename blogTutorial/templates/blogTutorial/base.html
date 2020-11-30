@@ -16,10 +16,8 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{% static 'blogTutorial/main.css' %}">
 
-    {% if title %}
-        <title>Django Blog - {{ title }}</title>
-    {% else %}
-        <title>Django Blog</title>
+    {% if title %}<title>Django Blog - {{ title }}</title>
+    {% else %}<title>Django Blog</title>
     {% endif %}
 </head>
 <body>

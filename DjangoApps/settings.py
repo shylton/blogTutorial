@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -120,8 +121,11 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-
 STATIC_URL = '/static/'
+
+# defaults to root folder, move it to avoid collision among apps
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # new upload root path
+MEDIA_URL = '/media/'  # used by html etc
 
 # default is bootstrap2, outdated
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
