@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 
 
-def registration(req):
+def register(req):
     if req.method == 'POST':
         # fill up form with prev data for reuse in case its not valid
         form = UserRegisterForm(req.POST)

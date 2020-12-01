@@ -10,11 +10,11 @@ class Profile(models.Model):
     def __str__(self):
         return f'{self.user.username} Profile'
 
-    def save(self):
+    def save(self, *args, **kwargs):
         """Schafer @part 9: perhaps there are more efficient ways to do this.
         TODO: use pre-save decorator instead?
         TODO: delete old image after image update"""
-        super().save()  # runs the save method of the parent class
+        super().save(*args, **kwargs)  # runs the save method of the parent class
 
         img = Image.open(self.image.path)
         if img.height > 300 or img.width > 300:

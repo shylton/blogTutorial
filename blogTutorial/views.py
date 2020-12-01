@@ -9,13 +9,6 @@ from django.views.generic import (ListView,
                                   DeleteView)
 
 
-# def home(req):
-#     context = {
-#         'posts': Post.objects.all(),
-#     }
-#     return render(req, 'blogTutorial/home.html', context=context)
-
-
 class PostListView(ListView):
     model = Post
     ordering = ['-date_posted']
