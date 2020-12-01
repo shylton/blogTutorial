@@ -1,7 +1,12 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Post
+from django.views.generic import (ListView,
+                                  DetailView,
+                                  CreateView,
+                                  UpdateView,
+                                  DeleteView)
 
 
 # def home(req):
@@ -21,6 +26,18 @@ class PostListView(ListView):
 
 class PostDetailView(DetailView):
     model = Post
+
+
+class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Post
+    success_url = reverse_lazy('blogTutorial:blog_home')
+
+    def test_func(self):
+        """UserPassesTestMixin func to check that currently logged in
+        user only updates his own posts"""
+        post = self.get_object()
+
+        return self.request.user == post.author
 
 
 class PostCreateView(LoginRequiredMixin, CreateView):
