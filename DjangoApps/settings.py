@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '9&sajn0tx#jfp3e))k1rd-@zmdzjlrp6358n=6%4=xhlfv^ky@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['mattas.herokuapp.com']
 
