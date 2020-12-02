@@ -13,7 +13,7 @@ def register(req):
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(req, f'Account created for {username}!'
-                                  f'Please log in.')
+                                  f' Please log in.')
             return redirect('login')
     else:
         # invalid form, reload page with prefilled form
